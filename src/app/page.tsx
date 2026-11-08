@@ -1,69 +1,181 @@
-import Image from "next/image";
+const articles = [
+  {
+    category: "NEXT.JS",
+    title: "Understanding Next.js caching without the confusion",
+    description:
+      "A practical guide to caching in Next.js — what it is, how it works, and when to use each strategy.",
+    date: "NOV 08, 2026",
+    read: "8 MIN READ",
+  },
+  {
+    category: "PROJECTS",
+    title: "Building a social platform with Next.js and Backblaze B2",
+    description:
+      "How I built Circles — a minimalist photo sharing platform, the stack I chose, and what I learned.",
+    date: "NOV 02, 2026",
+    read: "10 MIN READ",
+  },
+  {
+    category: "REFLECTIONS",
+    title: "Building things is easy. Finishing them is another story.",
+    description:
+      "Thoughts on motivation, focus, and the discipline it takes to actually ship projects.",
+    date: "OCT 28, 2026",
+    read: "5 MIN READ",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="min-h-screen bg-[#f7f5f0] text-[#20201e]">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-12">
+        {/* Navigation */}
+        <header className="flex h-20 items-center justify-between border-b border-[#d8d4cc]">
+          <a
+            href="/"
+            className="font-serif text-3xl font-semibold tracking-tight"
+          >
+            fieldnotes<span className="text-[#c34b28]">.</span>
+          </a>
+
+          <nav className="flex items-center gap-8 text-sm">
+            <a href="#writing" className="hover:text-[#c34b28]">
+              Writing
+            </a>
+            <a href="#notes" className="hover:text-[#c34b28]">
+              Notes
+            </a>
+            <a href="#about" className="hover:text-[#c34b28]">
+              About
+            </a>
+          </nav>
+        </header>
+
+        {/* Hero */}
+        <section className="grid min-h-[500px] items-center gap-12 py-20 md:grid-cols-2">
+          <div>
+            <p className="mb-8 text-xs font-medium uppercase tracking-[0.25em] text-[#c34b28]">
+              — A developer's journal
+            </p>
+
+            <h1 className="max-w-xl font-serif text-5xl leading-[1.08] tracking-tight md:text-7xl">
+              Notes from the process of figuring things out
+              <span className="text-[#c34b28]">.</span>
+            </h1>
+
+            <p className="mt-7 max-w-lg text-lg leading-8 text-[#73716c]">
+              On software, the web, tools, and the occasional life lesson. A
+              space to learn in public, document the messy parts, and share what
+              works.
+            </p>
+
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#writing"
+              className="mt-9 inline-flex items-center gap-4 bg-[#c34b28] px-6 py-4 text-sm text-white transition hover:bg-[#a63b1d]"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Start reading <span aria-hidden>→</span>
+            </a>
+          </div>
+
+          {/* Handcrafted visual instead of generic gradients */}
+          <div className="relative hidden h-[380px] items-center justify-center md:flex">
+            <div className="absolute right-10 top-10 h-56 w-56 rounded-full border border-[#ded9cf]" />
+            <div className="absolute bottom-12 left-8 h-64 w-64 rounded-full border border-[#ded9cf]" />
+
+            <div className="relative rotate-[-5deg] border border-[#d8d4cc] bg-[#eeebe4] p-8 shadow-[8px_8px_0_#e1ddd4]">
+              <p className="font-serif text-3xl italic">Keep making.</p>
+              <p className="mt-3 text-xs uppercase tracking-[0.2em] text-[#c34b28]">
+                Even when it's messy.
+              </p>
+              <div className="mt-8 h-px w-40 bg-[#d8d4cc]" />
+              <p className="mt-4 text-xs text-[#73716c]">FIELDNOTE Nº 001</p>
+            </div>
+
+            <span className="absolute bottom-8 right-10 font-serif text-6xl text-[#c34b28]">
+              ✳
+            </span>
+          </div>
+        </section>
+
+        {/* Writing */}
+        <section id="writing" className="border-t border-[#d8d4cc] py-10">
+          <div className="mb-10 flex items-center justify-between">
+            <h2 className="font-serif text-3xl tracking-tight md:text-4xl">
+              Latest writing
+            </h2>
+            <a href="#archive" className="text-sm text-[#c34b28]">
+              View all →
+            </a>
+          </div>
+
+          <div className="grid gap-0 md:grid-cols-3">
+            {articles.map((article, index) => (
+              <article
+                key={article.title}
+                className={`py-6 md:px-7 ${
+                  index !== 0 ? "border-t md:border-l md:border-t-0" : ""
+                } border-[#d8d4cc] md:first:pl-0 md:last:pr-0`}
+              >
+                <p className="mb-5 text-xs uppercase tracking-[0.2em] text-[#c34b28]">
+                  / {article.category}
+                </p>
+
+                <h3 className="font-serif text-2xl leading-snug">
+                  <a href="#" className="transition hover:text-[#c34b28]">
+                    {article.title}
+                  </a>
+                </h3>
+
+                <p className="mt-4 text-sm leading-6 text-[#73716c]">
+                  {article.description}
+                </p>
+
+                <div className="mt-7 flex flex-wrap gap-3 text-[10px] tracking-[0.15em] text-[#73716c]">
+                  <span>{article.date}</span>
+                  <span>·</span>
+                  <span>{article.read}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* About */}
+        <section
+          id="about"
+          className="grid gap-6 border-t border-[#d8d4cc] py-16 md:grid-cols-[1fr_2fr]"
+        >
+          <p className="text-xs uppercase tracking-[0.2em] text-[#c34b28]">
+            A little about this place
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+
+          <div>
+            <h2 className="font-serif text-3xl leading-snug md:text-4xl">
+              Made by a developer who is still figuring things out.
+            </h2>
+            <p className="mt-5 max-w-xl leading-7 text-[#73716c]">
+              I'm Sumit. I build things for the web, break them, fix them, and
+              occasionally write about the experience. This is where those notes
+              live.
+            </p>
+            <a
+              href="https://sumitsingh.space"
+              className="mt-6 inline-block text-sm text-[#c34b28]"
+            >
+              My portfolio ↗
+            </a>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-[#d8d4cc] py-8 text-xs text-[#73716c]">
+          <p>© 2026 Sumit Singh</p>
+          <p>Made slowly, with intention.</p>
+          <a href="#top" className="hover:text-[#c34b28]">
+            Back to top ↑
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </footer>
+      </div>
+    </main>
   );
 }
